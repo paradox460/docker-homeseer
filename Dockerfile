@@ -2,7 +2,7 @@ FROM mono:5
 
 ENV S6_VERSION=v1.21.4.0
 ENV LANG=en_US.UTF-8
-ENV HOMESEER_VERSION=3_0_0_500
+ENV HOMESEER_VERSION=3_0_0_531
 
 RUN apt-get update && apt-get install -y \
     chromium \
@@ -34,7 +34,7 @@ COPY rootfs /
 ARG AVAHI
 RUN [ "${AVAHI:-1}" = "1" ] || (echo "Removing Avahi" && rm -rf /etc/services.d/avahi /etc/services.d/dbus)
 
-VOLUME [ "/HomeSeer" ] 
+VOLUME [ "/HomeSeer" ]
 EXPOSE 80 10200 10300 10401
 
 ENTRYPOINT [ "/init" ]
