@@ -1,0 +1,17 @@
+[Unit]
+Description=Homeseer Docker Container
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+User=homeseer
+WorkingDirectory=~
+ExecStartPre=-/usr/local/bin/docker-compose -f docker-compose.yml stop -v
+ExecStart=/usr/local/bin/docker-compose -f docker-compose.yml up --no-recreate
+ExecStop=/usr/local/bin/docker-compose -f docker-compose.yml stop -v
+DeviceAllow=/dev/ttyACM0 rw
+
+[Install]
+WantedBy=multi-user.target
