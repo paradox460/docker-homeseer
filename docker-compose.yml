@@ -1,0 +1,14 @@
+version: '3'
+services:
+  homeseer:
+    image: e1ite/docker-homeseer
+    volumes:
+      - ./homeseer-install:/HomeSeer
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "80:80"
+      - "10200:10200"
+      - "10300:10300"
+      - "10401:10401"
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
