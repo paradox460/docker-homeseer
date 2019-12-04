@@ -2,7 +2,9 @@ FROM mono:5
 
 ENV S6_VERSION=v1.21.4.0
 ENV LANG=en_US.UTF-8
-ENV HOMESEER_VERSION=3_0_0_531
+
+ENV HOMESEER_VERSION=3_0_0_548
+
 
 RUN apt-get update && apt-get install -y \
     chromium \
